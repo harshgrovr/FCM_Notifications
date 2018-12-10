@@ -1,0 +1,90 @@
+{
+  "_args": [
+    [
+      "https://github.com/tushe/cordova-plugin-background-mode.git",
+      "/home/harsh/demo_app"
+    ]
+  ],
+  "_from": "git+https://github.com/tushe/cordova-plugin-background-mode.git",
+  "_id": "cordova-plugin-background-mode@0.7.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/cordova-plugin-background-mode",
+  "_phantomChildren": {},
+  "_requested": {
+    "hosted": {
+      "directUrl": "https://raw.githubusercontent.com/tushe/cordova-plugin-background-mode/master/package.json",
+      "gitUrl": "git://github.com/tushe/cordova-plugin-background-mode.git",
+      "httpsUrl": "git+https://github.com/tushe/cordova-plugin-background-mode.git",
+      "shortcut": "github:tushe/cordova-plugin-background-mode",
+      "ssh": "git@github.com:tushe/cordova-plugin-background-mode.git",
+      "sshUrl": "git+ssh://git@github.com/tushe/cordova-plugin-background-mode.git",
+      "type": "github"
+    },
+    "name": null,
+    "raw": "https://github.com/tushe/cordova-plugin-background-mode.git",
+    "rawSpec": "https://github.com/tushe/cordova-plugin-background-mode.git",
+    "scope": null,
+    "spec": "git+https://github.com/tushe/cordova-plugin-background-mode.git",
+    "type": "hosted"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/tushe/cordova-plugin-background-mode.git#9cbe65e7da02c36b0de7039597f5b9a472edd19e",
+  "_shasum": "e6c1c6edabf703db064abec04dafcc7815e74ccb",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/tushe/cordova-plugin-background-mode.git",
+  "_where": "/home/harsh/demo_app",
+  "author": {
+    "name": "Sebastián Katzer"
+  },
+  "bugs": {
+    "url": "https://github.com/katzer/cordova-plugin-background-mode/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-background-mode",
+    "platforms": [
+      "android",
+      "browser",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "Prevent apps from going to sleep in background.",
+  "devDependencies": {},
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    },
+    {
+      "name": "android-sdk",
+      "version": ">=16"
+    },
+    {
+      "name": "windows-sdk",
+      "version": ">=10.0.14393.0"
+    }
+  ],
+  "gitHead": "9cbe65e7da02c36b0de7039597f5b9a472edd19e",
+  "homepage": "https://github.com/katzer/cordova-plugin-background-mode#readme",
+  "keywords": [
+    "appplant",
+    "background",
+    "cordova-android",
+    "cordova-browser",
+    "cordova-ios",
+    "ecosystem:cordova"
+  ],
+  "license": "Apache 2.0",
+  "name": "cordova-plugin-background-mode",
+  "optionalDependencies": {},
+  "readme": "Plugin for the [Cordova][cordova] framework to perform infinite background execution.\n\nMost mobile operating systems are multitasking capable, but most apps dont need to run while in background and not present for the user. Therefore they pause the app in background mode and resume the app before switching to foreground mode.\nThe system keeps all network connections open while in background, but does not deliver the data until the app resumes.\n\n#### Store Compliance\nInfinite background tasks are not official supported on most mobile operation systems and thus not compliant with public store vendors. A successful submssion isn't garanteed.\n\nUse the plugin by your own risk!\n\n\n## Supported Platforms\n- __Android/Amazon FireOS__\n- __Browser__\n- __iOS__\n- __Windows__ _(see #222)_\n\n\n## Installation\nThe plugin can be installed via [Cordova-CLI][CLI] and is publicly available on [NPM][npm].\n\nInstall the latest head version:\n\n    $ cordova plugin add https://github.com/tushe/cordova-plugin-background-mode.git\n\nOr install from local source:\n\n    $ cordova plugin add cordova-plugin-background-mode --searchpath <path>\n\n\n## Usage\nThe plugin creates the object `cordova.plugins.backgroundMode` and is accessible after the *deviceready* event has been fired.\n\n```js\ndocument.addEventListener('deviceready', function () {\n    // cordova.plugins.backgroundMode is now available\n}, false);\n```\n\n### Enable the background mode\nThe plugin is not enabled by default. Once it has been enabled the mode becomes active if the app moves to background.\n\n```js\ncordova.plugins.backgroundMode.enable();\n// or\ncordova.plugins.backgroundMode.setEnabled(true);\n```\n\nTo disable the background mode:\n```js\ncordova.plugins.backgroundMode.disable();\n// or\ncordova.plugins.backgroundMode.setEnabled(false);\n```\n\n### Check if running in background\nOnce the plugin has been enabled and the app has entered the background, the background mode becomes active.\n\n```js\ncordova.plugins.backgroundMode.isActive(); // => boolean\n```\n\nA non-active mode means that the app is in foreground.\n\n### Listen for events\nThe plugin fires an event each time its status has been changed. These events are `enable`, `disable`, `activate`, `deactivate` and `failure`.\n\n```js\ncordova.plugins.backgroundMode.on('EVENT', function);\n```\n\nTo remove an event listeners:\n```js\ncordova.plugins.backgroundMode.un('EVENT', function);\n```\n\n\n## Android specifics\n\n### Transit between application states\nAndroid allows to programmatically move from foreground to background or vice versa.\n\n```js\ncordova.plugins.backgroundMode.moveToBackground();\n// or\ncordova.plugins.backgroundMode.moveToForeground();\n```\n\n### Back button\nOverride the back button on Android to go to background instead of closing the app.\n\n```js\ncordova.plugins.backgroundMode.overrideBackButton();\n```\n\n### Recent task list\nExclude the app from the recent task list works on Android 5.0+.\n\n```js\ncordova.plugins.backgroundMode.excludeFromTaskList();\n```\n\n### Detect screen status\nThe method works async instead of _isActive()_ or _isEnabled()_.\n\n```js\ncordova.plugins.backgroundMode.isScreenOff(function(bool) {\n    ...\n});\n```\n\n### Unlock and wake-up\nA wake-up turns on the screen while unlocking moves the app to foreground even the device is locked.\n\n```js\n// Turn screen on\ncordova.plugins.backgroundMode.wakeUp();\n// Turn screen on and show app even locked\ncordova.plugins.backgroundMode.unlock();\n```\n\n### Notification\nTo indicate that the app is executing tasks in background and being paused would disrupt the user, the plug-in has to create a notification while in background - like a download progress bar.\n\n#### Override defaults\nThe title, text and icon for that notification can be customized as below. Also, by default the app will come to foreground when tapping on the notification. That can be changed by setting resume to false. On Android 5.0+, the color option will set the background color of the notification circle. Also on Android 5.0+, setting hidden to false will make the notification visible on lockscreen.\n\n```js\ncordova.plugins.backgroundMode.setDefaults({\n    title: String,\n    text: String,\n    icon: 'icon' // this will look for icon.png in platforms/android/res/drawable|mipmap\n    color: String // hex format like 'F14F4D'\n    resume: Boolean,\n    hidden: Boolean,\n    bigText: Boolean\n})\n```\n\nTo modify the currently displayed notification\n```js\ncordova.plugins.backgroundMode.configure({ ... });\n```\n\n__Note:__ All properties are optional - only override the things you need to.\n\n#### Run in background without notification\nIn silent mode the plugin will not display a notification - which is not the default. Be aware that Android recommends adding a notification otherwise the OS may pause the app.\n\n```js\ncordova.plugins.backgroundMode.setDefaults({ silent: true });\n```\n\n\n## Quirks\n\nVarious APIs like playing media or tracking GPS position in background might not work while in background even the background mode is active. To fix such issues the plugin provides a method to disable most optimizations done by Android/CrossWalk.\n\n```js\ncordova.plugins.backgroundMode.on('activate', function() {\n   cordova.plugins.backgroundMode.disableWebViewOptimizations(); \n});\n```\n\n__Note:__ Calling the method led to increased resource and power consumption.\n\n\n## Contributing\n\n1. Fork it\n2. Create your feature branch (`git checkout -b my-new-feature`)\n3. Commit your changes (`git commit -am 'Add some feature'`)\n4. Push to the branch (`git push origin my-new-feature`)\n5. Create new Pull Request\n\n\n## License\n\nThis software is released under the [Apache 2.0 License][apache2_license].\n\nMade with :yum: from Leipzig\n\n? 2017 [appPlant GmbH][appplant] & [meshfields][meshfields]\n\n\n[cordova]: https://cordova.apache.org\n[CLI]: http://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-line%20Interface\n[NPM]: ???\n[changelog]: CHANGELOG.md\n[apache2_license]: http://opensource.org/licenses/Apache-2.0\n[appplant]: http://appplant.de\n[meshfields]: http://meshfields.de\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katzer/cordova-plugin-background-mode.git"
+  },
+  "version": "0.7.2"
+}

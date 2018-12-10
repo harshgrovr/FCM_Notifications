@@ -1,0 +1,37 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-background-mode": {
+      "PACKAGE_NAME": "com.example.myapp"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.example.myapp"
+    },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "com.example.myapp"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.example.myapp"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.example.myapp"
+    },
+    "cz.blocshop.socketsforcordova": {
+      "PACKAGE_NAME": "com.example.myapp"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.example.myapp"
+    },
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "com.example.myapp"
+    }
+  }
+}
