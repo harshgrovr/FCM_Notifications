@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/harsh/demo_app/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "/home/grover/FCM_Notifications/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/home/harsh/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/3c9a7f302dba43116b4a6948db755e54/res/values-v24/values-v24.xml",
+                    "source": "/home/grover/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/3f74ba9ddab5257e5707b191e42c85db/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
