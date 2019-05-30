@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "724508096583",
+    "firebase_url": "https://pocpushnotification-bcea4.firebaseio.com",
+    "project_id": "pocpushnotification-bcea4",
+    "storage_bucket": "pocpushnotification-bcea4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724508096583:android:dddc9f8bb5eff214",
+        "android_client_info": {
+          "package_name": "cordova.app.mypowergrid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724508096583-c2ntqron9ur7l2b5s68fdju0v7of220a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh1F_kz_ROFDUFeyTu-lsSGbkWSpVEBiE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724508096583-c2ntqron9ur7l2b5s68fdju0v7of220a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
